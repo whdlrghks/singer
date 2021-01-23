@@ -1,5 +1,7 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import './sing_item.dart';
 
 class Singer_Detail extends StatefulWidget {
@@ -18,13 +20,14 @@ class Singer_DetailState extends State<Singer_Detail> {
   List<String> _urllists = List();
   PlayerState _playerState;
   YoutubeMetaData _videoMetaData;
+  FirebaseFirestore firestore = FirebaseFirestore.instance;
 
   bool _isPlayerReady = false;
   YoutubePlayerController _controller;
   @override
   void initState() {
     _controller = YoutubePlayerController(
-      initialVideoId: YoutubePlayer.convertUrlToId(pre_videoURL),
+      initialVideoId: 'Sv85iKfeWCM',
       flags: YoutubePlayerFlags(
         autoPlay: true,
         mute: false,
@@ -52,12 +55,25 @@ class Singer_DetailState extends State<Singer_Detail> {
     }
   }
 
+  Stream<QuerySnapshot> fetchPeople() {
+    return firestore
+        .collection('Troat')
+        .limit(100)
+        .where('Singer',
+            isEqualTo: "임영웅") // Just in case there's a lot of documents
+        .snapshots();
+  }
+
+  // Widget show_song_list() {
+  //   // firebase랑 통신해서 해당 가수의 노래 제목과 url 가져오기
+  //   Sing_item newthing = Sing_item(singer, "노래제목", "https://url.com");
+
+  //   _list.add(newthing);
   Widget show_song_list() {
     // firebase랑 통신해서 해당 가수의 노래 제목과 url 가져오기
     Sing_item newthing = Sing_item(singer, "노래제목", "https://url.com");
 
     _list.add(newthing);
-
     return Container(
         child: ListView.builder(
       padding: const EdgeInsets.all(16.0),

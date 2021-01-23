@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "92851831822",
+    "project_id": "find-singer",
+    "storage_bucket": "find-singer.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:92851831822:android:3f11f61880d24bcaa0685f",
+        "android_client_info": {
+          "package_name": "com.example.find_singer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "92851831822-pci6qbsgs91559v35qkldbmj30bq92c4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRYLL6ZAFFSASJPnnwTzbulKWi29UScdc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "92851831822-pci6qbsgs91559v35qkldbmj30bq92c4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
